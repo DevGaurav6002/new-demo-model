@@ -31,7 +31,6 @@ mainMenuImages.forEach(menuImage => {
 //opening model if you click on main image
 mainImage.addEventListener('click', (e) => {
 
-    console.log(document.body.clientWidth)
 
     if(document.body.clientWidth <= 768){
 
@@ -175,8 +174,6 @@ deskVideos.forEach(video => {
 
         })
 
-        //console.log(video.parentElement)
-
         video.parentElement.appendChild(getH3Element())
         video.parentElement.style.border = '2px solid var(--gray-300)'
 
@@ -218,26 +215,34 @@ document.body.onload = function () {
 }
 
 
-    
-   
+//removing Mobile model on cut button onclick event
+
+const imgModelCutBtn  = document.querySelector('.delete-btn .btn h1')
+const videoModelCutBtn  = document.querySelector('.video-btn-delete i')
+
+imgModelCutBtn.addEventListener('click', e => {
+    e.preventDefault()
+
+    mainCard.classList.add('open')
+    mainCard.classList.remove('close')
+    document.querySelector('.container').style.display = 'none'
+    document.querySelector('.mobile-model-container').style.display = 'none'
+    mainCard.style.display = 'grid';
+    bodyContainer.style.display = 'block'
+
+})
 
 
-    // if(mainCard.classList.contains('closed') && window.innerWidth <= 768){
-    //     mainCard.style.display = 'none'
-    //     bodyContainer.style.display = 'none'
-    //     imageModel.style.display = 'none'
-    //     videoModel.style.display = 'none'
-    //     console.log("yes less than 768 but model closed")
-    //     document.querySelector('.container').style.display = 'block'
-    //     document.querySelector('.mobile-model-container').display = 'clock'
-    // }
+videoModelCutBtn.addEventListener('click', e => {
+    e.preventDefault()
 
-    // if(mainCard.classList.contains('closed') && window.innerWidth >= 768){
-    //     // mainCard.style.display = 'none'
-    //     // bodyContainer.style.display = 'none'
-    //     // imageModel.style.display = 'grid'
-    //     // videoModel.style.display = 'grid'
-    //     console.log("yes less than 768 but model closed")
-    //     document.querySelector('.container').style.display = 'none'
-    //     document.querySelector('.mobile-model-container').display = 'none'
-    // }
+    mainCard.classList.add('open')
+    mainCard.classList.remove('close')
+    document.querySelector('.playing-video-container .video-container video').pause()
+    document.querySelector('.container').style.display = 'none'
+    document.querySelector('.mobile-model-container').style.display = 'none'
+    document.querySelector('.mobile-video-container').style.display = 'none'
+    mainCard.style.display = 'grid';
+    bodyContainer.style.display = 'block'
+
+})
