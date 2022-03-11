@@ -144,7 +144,7 @@ videos.forEach(video => {
 
             if (videoParent.children.length > 1 && videoParent.querySelector(".playingVideo") != null) {
                 const removeElement = videoParent.querySelector('.playingVideo')
-                videoParent.style.border = '2px solid #e481a7'
+                videoParent.style.border = '2px solid var(--gray-300)'
                 videoParent.removeChild(removeElement)
             }
             else {
@@ -155,7 +155,7 @@ videos.forEach(video => {
         })
 
         video.parentElement.appendChild(getH3Element())
-        video.parentElement.style.border = '2px solid var(--gray-300)'
+        video.parentElement.style.border = '2px solid #e481a7'
     })
 })
 
@@ -248,19 +248,14 @@ function getInitialVideo() {
 
     videos.forEach(video => {
 
-        console.log("Menu-video" + video.getAttribute('id'))
-        console.log("playing" + playingVideo.getAttribute('src'))
-
         if (video.getAttribute('id') === playingVideo.getAttribute('src')) {
 
             video.parentElement.appendChild(getH3Element())
-            video.parentElement.style.border = '2px solid var(--gray-300)'
+            video.parentElement.style.border = '2px solid #e481a7'
         }
 
     })
 
-
-    console.log('Initial Video')
 }
 
 getInitialVideo()
